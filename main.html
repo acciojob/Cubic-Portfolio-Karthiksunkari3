@@ -1,16 +1,93 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <title>3D Cubical Block</title>
+  <style>
+    .container {
+      perspective: 800px;
+      width: 200px;
+      height: 200px;
+      margin: 50px auto;
+    }
+
+    .cubical {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      animation: rotate 8s infinite linear;
+    }
+
+    .face {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(0, 0, 0, 0.8);
+      border: 1px solid #fff;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .face.front {
+      transform: translateZ(100px);
+    }
+
+    .face.back {
+      transform: translateZ(-100px) rotateY(180deg);
+    }
+
+    .face.left {
+      transform: rotateY(-90deg) translateZ(100px);
+    }
+
+    .face.right {
+      transform: rotateY(90deg) translateZ(100px);
+    }
+
+    .face.top {
+      transform: rotateX(90deg) translateZ(100px);
+    }
+
+    .face.bottom {
+      transform: rotateX(-90deg) translateZ(100px);
+    }
+
+    @keyframes rotate {
+      0% { transform: rotateX(0) rotateY(0); }
+      100% { transform: rotateX(360deg) rotateY(360deg); }
+    }
+  </style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
-
+  <div class="container">
+    <div class="cubical">
+      <div class="face front">
+        <h2>Hobbies</h2>
+        <p>Your hobbies content goes here.</p>
+      </div>
+      <div class="face back">
+        <h2>Skills</h2>
+        <p>Your skills content goes here.</p>
+      </div>
+      <div class="face left">
+        <h2>Likes</h2>
+        <p>Your likes content goes here.</p>
+      </div>
+      <div class="face right">
+        <h2>Dislikes</h2>
+        <p>Your dislikes content goes here.</p>
+      </div>
+      <div class="face top">
+        <h2>About Me</h2>
+        <p>Your about me content goes here.</p>
+      </div>
+      <div class="face bottom">
+        <h2>More Info</h2>
+        <p>Additional info goes here.</p>
+      </div>
+    </div>
+  </div>
 </body>
-
 </html>
